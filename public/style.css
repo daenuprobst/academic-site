@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap');
 
-body {
+body,
+html {
     background: #1a1a23;
-    color: #9F9FD6;
+    color: #ccc;
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
 main {
     max-width: 800px;
     padding: 25px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #9F9FD6
 }
 
 h1 {
