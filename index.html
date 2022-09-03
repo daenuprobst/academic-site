@@ -22,16 +22,16 @@
         <nav>
             <ul>
                 <li><a href="#bio">Bio</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#awards">Awards</a></li>
+                <!--<li><a href="#awards">Awards</a></li>
+                <li><a href="#projects">Projects</a></li>-->
             </ul>
         </nav>
         <section id="bio">
             <h3>
-                #<br>
-                # Bio<br>
-                #
+                ------- <br>
+                | Bio | <br>
+                -------
             </h3>
             <p>
                 I received my BSc in computer science at the <a
@@ -58,28 +58,35 @@
                 Vandergheynst at EPFL.
             </p>
         </section>
-        <section id="projects">
-            <h3>
-                # <br>
-                # Projects<br>
-                #
-            </h3>
-        </section>
         <section id="publications">
             <h3>
-                # <br>
-                # Publications<br>
-                #
+                ---------------- <br>
+                | Publications |<br>
+                ----------------
             </h3>
+            <div id="publication-container">
+                Loading publications from ORCID. If the data does not load, the publications can also be found directly
+                on <a href="https://orcid.org/0000-0003-1737-4407">ORCID</a> or on <a
+                    href="https://scholar.google.com/citations?user=TNNgroIAAAAJ&hl=en">Google Scholar</a>.
+            </div>
         </section>
-        <section id="awards">
+        <!--<section id="awards">
             <h3>
                 # <br>
                 # Awards<br>
                 #
             </h3>
         </section>
+        <section id="projects">
+            <h3>
+                # <br>
+                # Projects<br>
+                #
+            </h3>
+        </section>-->
     </main>
+    <script src="https://unpkg.com/citation-js/build/citation.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 
