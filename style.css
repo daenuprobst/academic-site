@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap');
+
+body {
+    background: #1a1a23;
+    color: #9F9FD6;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+}
+
+main {
+    max-width: 800px;
+    padding: 25px;
+}
+
+h1 {
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 0;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+h3 {
+    line-height: 1;
+}
+
+nav ul {
+    position: relative;
+    list-style: none;
+    margin-left: 1.5em;
+    padding-left: 1.2em;
+}
+
+nav ul li:before {
+    content: "-";
+    position: absolute;
+    left: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section a {
+    color: #cdbdff;
+    text-decoration: underline;
+}
+
+section a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
