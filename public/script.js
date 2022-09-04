@@ -22,7 +22,7 @@ async function orcidLoadWorks(id) {
     return works.map(response => response.data.citation['citation-value']);
 }
 
-function renderPublications(publications) {
+async function renderPublications(publications) {
     let container = document.getElementById('publication-container');
     container.innerHTML = '';
 
@@ -34,30 +34,34 @@ function renderPublications(publications) {
     });
 }
 
-orcidLoadWorks(orcid).then(bibtexWorks => {
-    const works = bibtexWorks.map(bw => Cite(bw));
+async function init() {
+    orcidLoadWorks(orcid).then(bibtexWorks => {
+        const works = bibtexWorks.map(bw => Cite(bw));
 
-    works.sort((a, b) => {
-        const dateA = a.data[0].issued['date-parts'][0].join('-');
-        const dateB = b.data[0].issued['date-parts'][0].join('-');
-        return (dateA > dateB) ? -1 : ((dateA < dateB) ? 1 : 0);
+        works.sort((a, b) => {
+            const dateA = a.data[0].issued['date-parts'][0].join('-');
+            const dateB = b.data[0].issued['date-parts'][0].join('-');
+            return (dateA > dateB) ? -1 : ((dateA < dateB) ? 1 : 0);
+        })
+
+        // Group works by year
+        let worksByYear = {}
+        works.forEach(work => {
+            const year = work.data[0].issued['date-parts'][0][0];
+
+            if (!(year in worksByYear)) {
+                worksByYear[year] = [];
+            }
+
+            worksByYear[year].push(work.format('bibliography', {
+                format: 'html',
+                template: 'apa',
+                lang: 'en-US'
+            }));
+        });
+
+        renderPublications(worksByYear);
     })
+}
 
-    // Group works by year
-    let worksByYear = {}
-    works.forEach(work => {
-        const year = work.data[0].issued['date-parts'][0][0];
-
-        if (!(year in worksByYear)) {
-            worksByYear[year] = [];
-        }
-
-        worksByYear[year].push(work.format('bibliography', {
-            format: 'html',
-            template: 'apa',
-            lang: 'en-US'
-        }));
-    });
-
-    renderPublications(worksByYear);
-})
+init();
